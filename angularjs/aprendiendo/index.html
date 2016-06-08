@@ -4,29 +4,19 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title></title>
+    <script src="assets/js/angular.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/angular-local-storage.min.js"></script>
+    <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/font/css/font-awesome.min.css" rel="stylesheet">
-    <style>
-        .animate {
-            opacity: 1;
-            overflow: hidden;
-            transition: all 3s;
-            max-height: auto;
-        }
-        
-        .animate.ng-hide {
-            opacity: 0;
-            max-height: 0px !important;
-            display: block !important;
-        }
-    </style>
 </head>
 
 <body ng-controller="Controlador as ctrl">
     <header class="page-header">
         <div class="container col-xs-offset-3 col-md-offset-4 col-md-6">
             <img src="assets/img/angularLogo.png" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
-            <h1>{{name + " " + apellido}}</h1>
+            <h1 ng-cloak>{{name + " " + apellido}}</h1>
         </div>
     </header>
     <br>
@@ -104,9 +94,6 @@
             <p>Develop by Danny Suarez</p>
         </div>
     </footer>
-    <script src="assets/js/angular.min.js"></script>
-    <script src="assets/js/app.js"></script>
-    <script src="assets/js/angular-local-storage.min.js"></script>
     <script src="assets/js/jquery-2.2.4.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
 </body>

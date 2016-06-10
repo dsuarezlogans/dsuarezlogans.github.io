@@ -10,3 +10,7 @@
      max-height: 0px !important;
      display: block !important;
  }
+ 
+ .ui-autocomplete {
+     background-color: white;
+ }

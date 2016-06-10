@@ -7,9 +7,12 @@
     <script src="assets/js/angular.min.js"></script>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/angular-local-storage.min.js"></script>
+    <script src="assets/js/jquery-2.2.4.min.js"></script>
+    <script src="assets/js/autocomplete-jquery-ui.js"></script>
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/font/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/autocomplete-jquery-ui.structure.css" rel="stylesheet">
 </head>
 
 <body ng-controller="Controlador as ctrl">
@@ -68,6 +71,23 @@
             <li class="list-group-item" ng-repeat="actividad in toDo">{{actividad.descripcion}} - {{actividad.fecha | date:'short'}} / <a href="#" ng-click="removeAct(actividad)"><i class="fa fa-times fa-lg text-danger"></i></a></li>
         </ul>
     </section>
+    <section style="margin-bottom:50px;" class="row" ng-controller="GetRepo">
+        <div class="col-xs-6">
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <input auto-completar="repos" type="text" class="form-control" placeholder="Buscar Repo">
+                    <a href="" ng-click="main_repo = null">Clear</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 container">
+            <img ng-src="https://avatars.githubusercontent.com/u/10699738?v=3" alt="">
+            <h3>Repositorios de GitHub</h3>
+            <ul ng-hide="main_repo && main_repo != repo.name" class="list-group" ng-repeat="repo in posts">
+                <li class="list-group-item">{{repo.name}}</li>
+            </ul>
+        </div>
+    </section>
     <section style="margin-bottom:50px;" class="col-xs-12" ng-controller="JsonController">
         <legend>Submit Post</legend>
         <br>
@@ -94,7 +114,6 @@
             <p>Develop by Danny Suarez</p>
         </div>
     </footer>
-    <script src="assets/js/jquery-2.2.4.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
 </body>
 

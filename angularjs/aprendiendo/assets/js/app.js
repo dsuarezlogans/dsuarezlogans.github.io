@@ -124,4 +124,45 @@ angular.module("MyApp", ["LocalStorageModule"])
         s.clean = function () {
             s.toDo = tds.clean();
         };
-}]);
+
+}])
+    .controller('GetRepo', ['$scope', '$http', function (s, h) {
+        s.repos = [];
+        h.get('https://api.github.com/users/dsuarezlogans/repos')
+            .success(function (data) {
+                s.posts = data;
+                for (var i = data.length - 1; i >= 0; i--) {
+                    var repo = data[i];
+                    s.repos.push(repo.name);
+                };
+            })
+            .error(function (err) {
+                console.log(err);
+            });
+        s.optionSelected = function (data) {
+            s.$apply(function () {
+                s.main_repo = data;
+            })
+        }
+}])
+    .directive('autoCompletar', function () {
+        function link(scope, element, attrs) {
+            $(element).autocomplete({
+                source: scope.$eval(attrs.autoCompletar),
+                select: function (ev, ui) {
+                    ev.preventDefault();
+
+                    if (ui.item) {
+                        scope.optionSelected(ui.item.value);
+                    }
+                },
+                focus: function (ev, ui) {
+                    ev.preventDefault();
+                    $(this).val(ui.item.label);
+                }
+            });
+        };
+        return {
+            link: link
+        };
+    });

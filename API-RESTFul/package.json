@@ -1,0 +1,17 @@
+{
+  "name": "api-restful",
+  "version": "0.0.1",
+  "description": "servicio web api restful de prueba",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Danny Suarez",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.5.0"
+  }
+}

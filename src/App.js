@@ -8,8 +8,8 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          { /* eslint-disable-next-line */ }
-          Soon a cv site made with ❤️ with React. 
+          {/* eslint-disable-next-line */}
+          Soon a cv site made with ❤️ with React.
         </p>
         <a
           className="App-link"
